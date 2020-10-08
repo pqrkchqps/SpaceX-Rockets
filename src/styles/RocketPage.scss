@@ -1,0 +1,60 @@
+//rocket-page-card and launches both have their width
+//  set upto medium by $breakpoints
+
+@import '_SASSHelpers.scss';
+
+.rocket-page-card {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@include respond-below(md) {
+  .rocket-page-card {
+    width: map-get($breakpoints, sm);
+  }
+}
+@include respond-above(md) {
+  .rocket-page-card {
+    width: map-get($breakpoints, md);
+  }
+}
+
+.launches {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+@include respond-below(md) {
+  .launches {
+    width: map-get($breakpoints, sm);
+  }
+}
+@include respond-above(md) {
+  .launches {
+    width: map-get($breakpoints, md);
+  }
+}
+
+//Small styling adjustments to each launch entry
+.launch {
+  margin-bottom: 1.5rem;
+}
+
+.launch-details {
+  margin-top: 1rem;
+}
+
+.launch-header {
+  margin-bottom: 1rem;
+}
+
+//Small styling adjustments to media(which holds the rocket)
+.media-heading {
+  font-size: 2rem;
+}
+
+img {
+  width: 100%;
+}

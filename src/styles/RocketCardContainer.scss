@@ -1,0 +1,27 @@
+//rocket-card-container width is set based on breakpoints
+//helps ensure that the cards display either 1 on top of each other,
+//or in a four way grid or side by side depending on what the device dictates
+
+.rocket-card-container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@import '_SASSHelpers.scss';
+
+
+@include respond-below(md) {
+  .rocket-card-container {
+    width: map-get($breakpoints, sm);
+  }
+}
+@include respond-between(md,lg) {
+  .rocket-card-container {
+    width: map-get($breakpoints, md);
+  }
+}
+@include respond-above(lg) {
+  .rocket-card-container {
+    width: map-get($breakpoints, lg);
+  }
+}
