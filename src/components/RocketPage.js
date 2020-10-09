@@ -103,7 +103,22 @@ class RocketPage extends Component {
                   <Col lg="3">Flight Number: {launch.flight_number}</Col>
                   <Col>Date (UTC): {launch.date_utc}</Col>
                 </Row>
+                <Row>
+                  <Col>Success: {launch.success ? "Yes" : "No"}</Col>
+                  <Col>Recovered: {(launch.fairings && launch.fairings.recovered) ? "Yes" : "No"}</Col>
+                  <Col>Reused: {(launch.fairings && launch.fairings.reused) ? "Yes" : "No"}</Col>
+                </Row>
                 <Row><Col className="launch-details">Details: {launch.details ? launch.details : "None"}</Col></Row>
+                {launch.failures[0] ? (
+                  <div>
+                    <Row><Col sm="4" md="4"><h6 className="failures-header">Failures:</h6></Col></Row>
+
+                    {/*Each launch failure is indexed by a number*/}
+                    {launch.failures.map((failure, i) => (
+                      <Row><Col>{(i+1) + ": " + failure.reason}</Col></Row>
+                    ))}
+                  </div>
+                ) : ''}
               </Collapse>
             </Card>
           ))}
